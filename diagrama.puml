@@ -59,6 +59,7 @@ SlugFlyer->Vehiculo
 Prisionero->Consumible
 CajaDeMadera->Consumible
 
+
 Granada->Arma
 Arma o--Bala
 Personaje "1" o-- "[]" Arma
