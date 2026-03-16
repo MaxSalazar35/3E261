@@ -79,5 +79,4 @@ Enemigo o-- Arma
 Personaje o-- Vehiculo
 CajaDeMadera *-- Arma
 
-
 @enduml
