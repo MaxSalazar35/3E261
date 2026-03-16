@@ -1,9 +1,18 @@
 @startuml
-class Personaje
-class Arma
+class Personaje{
+    + Mover()
+}
+class Arma{
+    + Disparar()
+}
 class Jugador
-class Consumible
-class Vehiculo
+class Consumible{
+    - Puntuar()
+    - Dar()
+}
+class Vehiculo{
+    +Mover()
+}
 class MetalSlug
 class H
 class R
@@ -16,7 +25,9 @@ class Prisionero
 class CajaDeMadera
 
 class Granada
-class Bala
+class Municion{
+
+}
 class Marco
 class Tarma
 class Eri
@@ -32,44 +43,41 @@ class Cangrejo
 class Alien
 class Vida
 
-H->Arma
-C->Arma
-F->Arma
-R->Arma
-S->Arma
-L->Arma
+H--|>Arma
+C--|>Arma
+F--|>Arma
+R--|>Arma
+S--|>Arma
+L--|>Arma
 
-Marco->Personaje
-Tarma->Personaje
-Fio->Personaje
-Eri->Personaje
-Ralf->Personaje
-Leona->Personaje
+Marco --|> Personaje
+Tarma --|> Personaje
+Fio --|> Personaje
+Eri --|> Personaje
+Ralf --|> Personaje
+Leona --|> Personaje
 
-Zombi->Enemigo
-Momia->Enemigo
-Cangrejo->Enemigo
-Soldado->Enemigo
-Escudero->Enemigo
-Alien->Enemigo
+Zombi --|> Enemigo
+Momia --|> Enemigo
+Cangrejo --|> Enemigo
+Soldado --|>Enemigo
+Escudero --|> Enemigo
+Alien --|> Enemigo
 
-Arma->Consumible
-MetalSlug->Vehiculo
-SlugFlyer->Vehiculo
-Prisionero->Consumible
-CajaDeMadera->Consumible
+MetalSlug --|> Vehiculo
+SlugFlyer --|> Vehiculo
+Prisionero --|> Consumible
+CajaDeMadera --|> Consumible
 
-
-Granada->Arma
-Arma o--Bala
+Granada --|> Arma
+Arma "1" *-- "*" Municion
 Personaje "1" o-- "[]" Arma
-Personaje o--Consumible
+Personaje o-- Consumible
 Personaje "1" *-- "3" Vida
 Jugador o-- Personaje
 Enemigo o-- Arma
 Personaje o-- Vehiculo
-Personaje o-- Consumible
-Personaje "1" *-- "3" Vida
 CajaDeMadera *-- Arma
+
 
 @enduml
